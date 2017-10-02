@@ -5,6 +5,12 @@ import pygame
 #Espirales
 #Calculos
 #Pi
+def aproximarPi(intentos):
+  x=0
+  for i in range(intentos)
+    x=x+1/(i**2)
+  return(x)
+
 def encontrarNumerosDivisiblesEntre29():
   x=0
   for i in range(1000,9999):
