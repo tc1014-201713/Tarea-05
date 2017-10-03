@@ -35,9 +35,7 @@ def piramidesNumeros():
         resultadocuadrado = numeros * numeros
         print(numeros, "X", numeros, "=", resultadocuadrado)
         numeros = (numeros * 10) + 1
-
-
-def Main():
+def menu():
     print("Tarea 5. Seleccione qué quiere hacer.")
     print("1. Dibujar cuadros y círculos")
     print("2. Dibujar espiral")
@@ -47,7 +45,18 @@ def Main():
     print("6. Contar divisibles entre 29")
     print("7. Imprimir piramides de números")
     print("0. Salir")
-    eleccion=int(input("¿Qué desea hacer?"))
+    conclusion=int(input("¿Qué desea hacer?"))
+    return(conclusion)
+def retorno():
+    print("")
+    print("1. Si")
+    print("2. No")
+    retornocondicional=int(input(("¿Desea regresar al menu principal?")))
+    print("")
+    return(retornocondicional)
+    
+def Main():
+    eleccion=menu()
     respuesta=True
     while respuesta==True:
         if eleccion==0:
@@ -66,9 +75,12 @@ def Main():
             print("La aproximación de Pi con", final,"intentos es de:",aproximarPi(final))
         elif eleccion==6:
             print("El número de números de cuatro digitos divisibles entre 29 es:",encontrarNumerosDivisiblesEntre29())
+            solucion=retorno()
+            if solucion==1:
+              menu()
+            else:
+              break
         elif eleccion==7:
             print(piramidesNumeros())
         else:
             print("error. Número no localizado")
-
-Main()
