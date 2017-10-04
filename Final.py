@@ -2,6 +2,7 @@
 #Autor: Aaron Villanueva
 #Este programa hace muchas cosas.
 import pygame
+import math
 
 anchoVentana = 800
 altoVentana = 800
@@ -35,12 +36,17 @@ def dibujarLaberinto():
         for diferencia in range(0,100,10):
             pygame.draw.lines(ventana, NEGRO, True, (400+cambio,400-cambio),1)
     pygame.quit()
-    
+
+   
 def dibujarCirculos():
     iniciarpygame()
-        for X in range(0,100,10)
+        for angulo in range(0,360,30)
+            #x=arcos(angulo)*150
+            #y=arsen(angulo)*150
             pygame.draw.circle(ventana, NEGRO, (x,y), 150, 1)
-    
+
+            
+
 def aproximarPi(intentos):
     x = 0
     for i in range(1, intentos):
