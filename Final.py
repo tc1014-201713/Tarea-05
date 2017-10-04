@@ -1,9 +1,33 @@
 #encoding: UTF-8
 #Autor: Aaron Villanueva
 #Este programa hace muchas cosas.
-#Espirales
-#Calculos
-#Pi
+import pygame
+
+anchoVentana = 800
+altoVentana = 800
+BLANCO = (255,255,255)
+NEGRO = (0, 0, 0)
+ROJO = (255, 0, 0)
+
+def dibujarCuadrosCirculos():
+    pygame.init()
+    ventana = pygame.display.set_mode((anchoVentana, altoVentana))
+    reloj = pygame.time.Clock()
+    termina = False
+    while not termina:
+        for evento in pygame.event.get():
+            if evento.type == pygame.QUIT:
+                termina = True
+        ventana.fill(BLANCO)
+
+        for diferencia in range(0,400,10):
+            pygame.draw.circle(ventana, NEGRO, (anchoVentana // 2, altoVentana // 2), 400-diferencia, 2)
+        for cambio in range(0,400,10):
+            pygame.draw.rect(ventana, NEGRO, (cambio, cambio, anchoVentana-(2*cambio), altoVentana-(2*cambio)), 1)
+        pygame.display.flip()
+        reloj.tick(40)
+    pygame.quit()
+
 def aproximarPi(intentos):
     x = 0
     for i in range(1, intentos):
@@ -30,7 +54,6 @@ def piramidesNumeros():
         piramide = (piramide * 10) + (factor + 1)
     print("")
     numeros = 1
-    resultadocuadrado = 1
     for i in range(10):
         resultadocuadrado = numeros * numeros
         print(numeros, "X", numeros, "=", resultadocuadrado)
