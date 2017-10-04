@@ -9,7 +9,7 @@ BLANCO = (255,255,255)
 NEGRO = (0, 0, 0)
 ROJO = (255, 0, 0)
 
-def dibujarCuadrosCirculos():
+def iniciarPygame():
     pygame.init()
     ventana = pygame.display.set_mode((anchoVentana, altoVentana))
     reloj = pygame.time.Clock()
@@ -19,15 +19,28 @@ def dibujarCuadrosCirculos():
             if evento.type == pygame.QUIT:
                 termina = True
         ventana.fill(BLANCO)
-
+    pygame.display.flip()
+    reloj.tick(40)
+        
+def dibujarCuadrosCirculos():
+    iniciarpygame()
         for diferencia in range(0,400,10):
             pygame.draw.circle(ventana, NEGRO, (anchoVentana // 2, altoVentana // 2), 400-diferencia, 2)
         for cambio in range(0,400,10):
             pygame.draw.rect(ventana, NEGRO, (cambio, cambio, anchoVentana-(2*cambio), altoVentana-(2*cambio)), 1)
-        pygame.display.flip()
-        reloj.tick(40)
     pygame.quit()
 
+def dibujarLaberinto():
+    iniciarpygame()
+        for diferencia in range(0,100,10):
+            pygame.draw.lines(ventana, NEGRO, True, (400+cambio,400-cambio),1)
+    pygame.quit()
+    
+def dibujarCirculos():
+    iniciarpygame()
+        for X in range(0,100,10)
+            pygame.draw.circle(ventana, NEGRO, (x,y), 150, 1)
+    
 def aproximarPi(intentos):
     x = 0
     for i in range(1, intentos):
