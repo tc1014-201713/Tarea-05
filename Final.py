@@ -97,7 +97,7 @@ def retorno():
     print("")
     return(retornocondicional)
     
-def Main():
+def main():
     eleccion=menu()
     respuesta=True
     while respuesta==True:
@@ -141,3 +141,5 @@ def Main():
               break
         else:
             print("error. Número no localizado")
+            
+main()
