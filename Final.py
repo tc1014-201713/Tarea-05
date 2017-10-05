@@ -11,10 +11,19 @@ NEGRO = (0, 0, 0)
 ROJO = (255, 0, 0)
 
 def dibujarCuadrosCirculos():
-    for diferencia in range(0,400,10):
-        pygame.draw.circle(ventana, NEGRO, (anchoVentana // 2, altoVentana // 2), 400-diferencia, 2)
-    for cambio in range(0,400,10):
-        pygame.draw.rect(ventana, NEGRO, (cambio, cambio, anchoVentana-(2*cambio), altoVentana-(2*cambio)), 1)
+    pygame.init()
+    ventana = pygame.display.set_mode((anchoVentana, altoVentana))
+    termina = False
+    while not termina:
+        for evento in pygame.event.get():
+            if evento.type == pygame.QUIT:
+                termina = True
+        ventana.fill(BLANCO)
+        for diferencia in range(0,400,10):
+            pygame.draw.circle(ventana, NEGRO, (anchoVentana // 2, altoVentana // 2), 400-diferencia, 2)
+        for cambio in range(0,400,10):
+            pygame.draw.rect(ventana, NEGRO, (cambio, cambio, anchoVentana-(2*cambio), altoVentana-(2*cambio)), 1)
+        pygame.display.flip()
     pygame.quit()
 
 def dibujarLaberinto():
