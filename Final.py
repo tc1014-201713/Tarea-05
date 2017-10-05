@@ -129,9 +129,9 @@ def retorno():
     return(retornocondicional)
     
 def main():
-    eleccion=menu()
     respuesta=True
     while respuesta==True:
+            eleccion=menu()
         if eleccion==0:
             print("saliendo")
             respuesta=False
@@ -143,33 +143,13 @@ def main():
             dibujarCirculos()
         elif eleccion==4:
             dibujarParabolas()
-            solucion=retorno()
-            if solucion==1:
-              menu()
-            else:
-                break
         elif eleccion==5:
             final=int(input("Ingrese un número entero para determinar Pi. Entre mayor sea, más exacto el resultado"))
             print("La aproximación de Pi con", final,"intentos es de:",aproximarPi(final))
-            solucion=retorno()
-            if solucion==1:
-              menu()
-            else:
-              break
         elif eleccion==6:
             print("El número de números de cuatro digitos divisibles entre 29 es:",encontrarNumerosDivisiblesEntre29())
-            solucion=retorno()
-            if solucion==1:
-              menu()
-            else:
-              break
         elif eleccion==7:
             print(piramidesNumeros())
-            solucion=retorno()
-            if solucion==1:
-              menu()
-            else:
-              break
         else:
             print("error. Número no localizado")
             
