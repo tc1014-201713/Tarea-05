@@ -9,6 +9,21 @@ altoVentana = 800
 BLANCO = (255,255,255)
 NEGRO = (0, 0, 0)
 ROJO = (255, 0, 0)
+def dibujarrombo():
+    pygame.init()
+    ventana=pygame.display,set_mode((anchoVentana,altoVentana))
+    termina=False
+    while not termina:
+        for evento in pygame.event.get():
+            if evento.type == pygame.QUIT():
+                termina=True
+        ventana.fill(BLANCO)
+        for cambio in range(10,200,10)
+            x=10+cambio
+            y=10+cambio
+            pygame.draw.polygon(ventana,NEGRO,(400+x,400+y,400-x,400-y),1)
+        pygame.display.flip()
+    pygame.quit()
 
 def dibujarCuadrosCirculos():
     pygame.init()
