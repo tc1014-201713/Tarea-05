@@ -10,41 +10,57 @@ BLANCO = (255,255,255)
 NEGRO = (0, 0, 0)
 ROJO = (255, 0, 0)
 
-#Esta función permite crear el ambiente de pygame para luego ejecutar los dibujos
-def iniciarPygame():
+def dibujarCuadrosCirculos():
+    for diferencia in range(0,400,10):
+        pygame.draw.circle(ventana, NEGRO, (anchoVentana // 2, altoVentana // 2), 400-diferencia, 2)
+    for cambio in range(0,400,10):
+        pygame.draw.rect(ventana, NEGRO, (cambio, cambio, anchoVentana-(2*cambio), altoVentana-(2*cambio)), 1)
+    pygame.quit()
+
+def dibujarLaberinto():
     pygame.init()
     ventana = pygame.display.set_mode((anchoVentana, altoVentana))
-    reloj = pygame.time.Clock()
     termina = False
     while not termina:
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
                 termina = True
         ventana.fill(BLANCO)
-    pygame.display.flip()
-    reloj.tick(40)
-        
-def dibujarCuadrosCirculos():
-    iniciarpygame()
-        for diferencia in range(0,400,10):
-            pygame.draw.circle(ventana, NEGRO, (anchoVentana // 2, altoVentana // 2), 400-diferencia, 2)
-        for cambio in range(0,400,10):
-            pygame.draw.rect(ventana, NEGRO, (cambio, cambio, anchoVentana-(2*cambio), altoVentana-(2*cambio)), 1)
-    pygame.quit()
-
-def dibujarLaberinto():
-    iniciarpygame()
-        for diferencia in range(0,100,10):
-            pygame.draw.lines(ventana, NEGRO, True, (400+cambio,400-cambio),1)
+        x=400
+        y=400
+        cambio=10
+        constante=cambio/2
+        for angulo in range(0,14400,90):
+            anguloOperaciones=math.radians(angulo)
+            anguloCoseno=math.cos(anguloOperaciones)
+            cambioX=int(cambio*anguloCoseno)
+            anguloSeno=math.sin(anguloOperaciones)
+            cambioY=int(cambio*anguloSeno)
+            pygame.draw.line(ventana, NEGRO,(x,y),(x+cambioX,y-cambioY), 1)
+            x=x+cambioX
+            y=y-cambioY
+            cambio=cambio+constante
+        pygame.display.flip()
     pygame.quit()
 
    
 def dibujarCirculos():
-    iniciarpygame()
-        for angulo in range(0,360,30)
-            x=150cos(angulo)
-            y=150sen(angulo)
-            pygame.draw.circle(ventana, NEGRO, (400+x,400+y), 150, 1)
+    pygame.init()
+    ventana = pygame.display.set_mode((anchoVentana, altoVentana))
+    termina = False
+    while not termina:
+        for evento in pygame.event.get():
+            if evento.type == pygame.QUIT:
+                termina = True
+        ventana.fill(BLANCO)
+        for angulo in range(0,360,30):
+            anguloOperaciones=math.radians(angulo)
+            anguloCoseno=math.cos(anguloOperaciones)
+            x=int(150*anguloCoseno)
+            anguloSeno=math.sin(anguloOperaciones)
+            y=int(150*anguloSeno)
+            pygame.draw.circle(ventana, NEGRO, (400+x, 400+y), 150, 1)
+        pygame.display.flip()
     pygame.quit()
             
 #Esta función aproxima el valor de Pi a partir de una formula recursiva. Requiere un parametro para el número de recursiones.
