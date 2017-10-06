@@ -137,7 +137,7 @@ def main():
         print("")
         if eleccion==0:
             print("saliendo")
-            respuesta=False
+            break
         elif eleccion==1:
             dibujarCuadrosCirculos()
         elif eleccion==2:
@@ -156,5 +156,6 @@ def main():
         else:
             print("error. Número no localizado")
         print("")
+        int(input("Introduzca cualquier número para regresar al menú "))
         os.system('CLS')
 main()
