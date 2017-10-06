@@ -10,8 +10,8 @@ import os
 #Atributos iniciales
 anchoVentana = 800
 altoVentana = 800
-BLANCO = (255,255,255)
-NEGRO = (0, 0, 0)
+blanco = (255,255,255)
+negro = (0, 0, 0)
 
 #Esta función utiliza parabolas para dibujar un rombo con puntas alargadas. Además, tiene una animación que muestra cambios de colores en cada parabola.
 def dibujarParabolas():
@@ -22,7 +22,7 @@ def dibujarParabolas():
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
                 termina = True
-        ventana.fill(BLANCO)
+        ventana.fill(blanco)
 
 
 
@@ -38,11 +38,11 @@ def dibujarCuadrosCirculos():
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
                 termina = True
-        ventana.fill(BLANCO)
+        ventana.fill(blanco)
         for diferencia in range(0,400,10):
-            pygame.draw.circle(ventana, NEGRO, (anchoVentana // 2, altoVentana // 2), 400-diferencia, 2)
+            pygame.draw.circle(ventana, negro, (anchoVentana // 2, altoVentana // 2), 400-diferencia, 2)
         for cambio in range(0,400,10):
-            pygame.draw.rect(ventana, NEGRO, (cambio, cambio, anchoVentana-(2*cambio), altoVentana-(2*cambio)), 1)
+            pygame.draw.rect(ventana, negro, (cambio, cambio, anchoVentana-(2*cambio), altoVentana-(2*cambio)), 1)
         pygame.display.flip()
     pygame.quit()
 
@@ -56,7 +56,7 @@ def dibujarEspiral():
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
                 termina = True
-        ventana.fill(BLANCO)
+        ventana.fill(blanco)
         x=400
         y=400
         cambio=10
@@ -67,7 +67,7 @@ def dibujarEspiral():
             cambioX=int(cambio*anguloCoseno)
             anguloSeno=math.sin(anguloOperaciones)
             cambioY=int(cambio*anguloSeno)
-            pygame.draw.line(ventana, NEGRO,(x,y),(x+cambioX,y-cambioY), 1)
+            pygame.draw.line(ventana, negro,(x,y),(x+cambioX,y-cambioY), 1)
             x=x+cambioX
             y=y-cambioY
             cambio=cambio+constante
@@ -84,14 +84,14 @@ def dibujarCirculos():
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
                 termina = True
-        ventana.fill(BLANCO)
+        ventana.fill(blanco)
         for angulo in range(0,360,30):
             anguloOperaciones=math.radians(angulo)
             anguloCoseno=math.cos(anguloOperaciones)
             x=int(150*anguloCoseno)
             anguloSeno=math.sin(anguloOperaciones)
             y=int(150*anguloSeno)
-            pygame.draw.circle(ventana, NEGRO, (400+x, 400+y), 150, 1)
+            pygame.draw.circle(ventana, negro, (400+x, 400+y), 150, 1)
         pygame.display.flip()
     pygame.quit()
             
