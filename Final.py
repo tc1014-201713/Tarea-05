@@ -157,5 +157,7 @@ def main():
             print("error. Número no localizado")
         print("")
         int(input("Introduzca cualquier número para regresar al menú "))
+        print(10*"\n")
+
         os.system('CLS')
 main()
