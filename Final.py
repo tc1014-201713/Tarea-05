@@ -3,27 +3,13 @@
 #Este programa hace muchas cosas.
 import pygame
 import math
+import os
 
 anchoVentana = 800
 altoVentana = 800
 BLANCO = (255,255,255)
 NEGRO = (0, 0, 0)
 ROJO = (255, 0, 0)
-def dibujarrombo():
-    pygame.init()
-    ventana=pygame.display,set_mode((anchoVentana,altoVentana))
-    termina=False
-    while not termina:
-        for evento in pygame.event.get():
-            if evento.type == pygame.QUIT():
-                termina=True
-        ventana.fill(BLANCO)
-        for cambio in range(10,200,10)
-            x=10+cambio
-            y=10+cambio
-            pygame.draw.polygon(ventana,NEGRO,(400+x,400+y,400-x,400-y),1)
-        pygame.display.flip()
-    pygame.quit()
 
 def dibujarCuadrosCirculos():
     pygame.init()
@@ -67,7 +53,6 @@ def dibujarLaberinto():
         pygame.display.flip()
     pygame.quit()
 
-   
 def dibujarCirculos():
     pygame.init()
     ventana = pygame.display.set_mode((anchoVentana, altoVentana))
@@ -121,32 +106,21 @@ def piramidesNumeros():
         resultadocuadrado = numeros * numeros
         print(numeros, "X", numeros, "=", resultadocuadrado)
         numeros = (numeros * 10) + 1
-
-def menu():
-    print("Tarea 5. Seleccione qué quiere hacer.")
-    print("1. Dibujar cuadros y círculos")
-    print("2. Dibujar espiral")
-    print("3. Dibujar círculos")
-    print("4. Dibujar parabolas")
-    print("5. Aproximar PI")
-    print("6. Contar divisibles entre 29")
-    print("7. Imprimir piramides de números")
-    print("0. Salir")
-    conclusion=int(input("¿Qué desea hacer?"))
-    return(conclusion)
-
-def retorno():
-    print("")
-    print("1. Si")
-    print("2. No")
-    retornocondicional=int(input(("¿Desea regresar al menu principal?")))
-    print("")
-    return(retornocondicional)
     
 def main():
     respuesta=True
     while respuesta==True:
-            eleccion=menu()
+        print("Tarea 5. Seleccione qué quiere hacer.")
+        print("1. Dibujar cuadros y círculos")
+        print("2. Dibujar espiral")
+        print("3. Dibujar círculos")
+        print("4. Dibujar parabolas")
+        print("5. Aproximar PI")
+        print("6. Contar divisibles entre 29")
+        print("7. Imprimir piramides de números")
+        print("0. Salir")
+        eleccion = int(input("¿Qué desea hacer?"))
+        print("")
         if eleccion==0:
             print("saliendo")
             respuesta=False
@@ -167,5 +141,6 @@ def main():
             print(piramidesNumeros())
         else:
             print("error. Número no localizado")
-            
+        print("")
+        os.system('CLS')
 main()
