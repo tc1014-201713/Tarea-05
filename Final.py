@@ -1,15 +1,19 @@
 #encoding: UTF-8
 #Autor: Aaron Villanueva
 #Este programa hace muchas cosas.
+
+#Importaciones o paquetes requeridos para este programa. OS es utilizado para una función que solamente funciona en Windows.
 import pygame
 import math
 import os
 
+#Atributos iniciales
 anchoVentana = 800
 altoVentana = 800
 BLANCO = (255,255,255)
 NEGRO = (0, 0, 0)
 
+#Esta función utiliza parabolas para dibujar un rombo con puntas alargadas. Además, tiene una animación que muestra cambios de colores en cada parabola.
 def dibujarParabolas():
     pygame.init()
     ventana = pygame.display.set_mode((anchoVentana, altoVentana))
@@ -25,6 +29,7 @@ def dibujarParabolas():
         pygame.display.flip()
     pygame.quit()
 
+#Esta función dibuja una serie de cuadrados y círculos los cuales cambian de tamaño y cuya diferencia es de 10 pixeles.
 def dibujarCuadrosCirculos():
     pygame.init()
     ventana = pygame.display.set_mode((anchoVentana, altoVentana))
@@ -41,6 +46,8 @@ def dibujarCuadrosCirculos():
         pygame.display.flip()
     pygame.quit()
 
+#Esta función crea un espiral sin curva, es decir, una linea contigua que gira a la izquierda 90° cada vez que llega a su límite.
+#Además, cada linea nueva tiene una distancia máxima mayor que la anterior. La separación entre las lineas es de 10 pixeles.
 def dibujarEspiral():
     pygame.init()
     ventana = pygame.display.set_mode((anchoVentana, altoVentana))
@@ -67,6 +74,8 @@ def dibujarEspiral():
         pygame.display.flip()
     pygame.quit()
 
+#Esta función utiliza pygame para dibujar una docena de círculos cuyo centro esta a 150 pixelees del centro.
+#Utiliza math para conocer la posición en X y Y de cada centro de los círculos
 def dibujarCirculos():
     pygame.init()
     ventana = pygame.display.set_mode((anchoVentana, altoVentana))
