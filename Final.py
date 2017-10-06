@@ -133,7 +133,7 @@ def main():
         print("6. Contar divisibles entre 29")
         print("7. Imprimir piramides de números")
         print("0. Salir")
-        eleccion = int(input("¿Qué desea hacer?"))
+        eleccion = int(input("¿Qué desea hacer? "))
         print("")
         if eleccion==0:
             print("saliendo")
@@ -147,7 +147,7 @@ def main():
         elif eleccion==4:
             dibujarParabolas()
         elif eleccion==5:
-            final=int(input("Ingrese un número entero para determinar Pi. Entre mayor sea, más exacto el resultado"))
+            final=int(input("Ingrese un número entero para determinar Pi. Entre mayor sea, más exacto el resultado "))
             print("La aproximación de Pi con", final,"intentos es de:",aproximarPi(final))
         elif eleccion==6:
             print("El número de números de cuatro digitos divisibles entre 29 es:",encontrarNumerosDivisiblesEntre29())
