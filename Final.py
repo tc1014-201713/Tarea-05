@@ -141,6 +141,7 @@ def main():
     respuesta=True
     while respuesta==True:
         print("Tarea 5. Seleccione qué quiere hacer.")
+        print("Favor de introducir solamente números")
         print("1. Dibujar cuadros y círculos")
         print("2. Dibujar espiral")
         print("3. Dibujar círculos")
@@ -149,7 +150,6 @@ def main():
         print("6. Contar divisibles entre 29")
         print("7. Imprimir piramides de números")
         print("0. Salir")
-        print("Favor de introducir solamente números")
         eleccion = int(input("¿Qué desea hacer? "))
         print("")
         if eleccion==0:
