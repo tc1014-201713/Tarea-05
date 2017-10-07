@@ -17,16 +17,21 @@ negro = (0, 0, 0)
 def dibujarParabolas():
     pygame.init()
     ventana = pygame.display.set_mode((anchoVentana, altoVentana))
+    reloj = pygame.time.Clock()
     termina = False
     while not termina:
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
                 termina = True
         ventana.fill(blanco)
-
-
-
+        for cambio in range(0, 405, 10):
+            color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+            pygame.draw.line(ventana, color,(400-cambio,400),(400,0+cambio))
+            pygame.draw.line(ventana, color,(400+cambio,400),(400,0+cambio))
+            pygame.draw.line(ventana, color,(400+cambio,400),(400,800-cambio))
+            pygame.draw.line(ventana, color,(400-cambio,400),(400,800-cambio))
         pygame.display.flip()
+        reloj.tick(1)
     pygame.quit()
 
 #Esta función dibuja una serie de cuadrados y círculos los cuales cambian de tamaño y cuya diferencia es de 10 pixeles.
@@ -42,7 +47,7 @@ def dibujarCuadrosCirculos():
         for diferencia in range(0,400,10):
             pygame.draw.circle(ventana, negro, (anchoVentana // 2, altoVentana // 2), 400-diferencia, 2)
         for cambio in range(0,400,10):
-            pygame.draw.rect(ventana, negro, (cambio, cambio, anchoVentana-(2*cambio), altoVentana-(2*cambio)), 1)
+            pygame.draw.rect(ventana, negro, (cambio,cambio,anchoVentana-(2*cambio),altoVentana-(2*cambio)), 1)
         pygame.display.flip()
     pygame.quit()
 
@@ -91,7 +96,7 @@ def dibujarCirculos():
             x=int(150*anguloCoseno)
             anguloSeno=math.sin(anguloOperaciones)
             y=int(150*anguloSeno)
-            pygame.draw.circle(ventana, negro, (400+x, 400+y), 150, 1)
+            pygame.draw.circle(ventana, negro,(400+x,400+y),150, 1)
         pygame.display.flip()
     pygame.quit()
             
@@ -129,7 +134,8 @@ def piramidesNumeros():
         resultadocuadrado = numeros * numeros
         print(numeros, "X", numeros, "=", resultadocuadrado)
         numeros = (numeros * 10) + 1
-    
+
+#Esta función Main procesa el menu principal a través de un while que permite tener regresar al mismo después de ejecutar una función.
 def main():
     respuesta=True
     while respuesta==True:
@@ -146,6 +152,7 @@ def main():
         print("")
         if eleccion==0:
             print("saliendo")
+            #Este break detiene toda la función Main
             break
         elif eleccion==1:
             dibujarCuadrosCirculos()
@@ -166,7 +173,8 @@ def main():
             print("error. Número no localizado")
         print("")
         int(input("Introduzca cualquier número para regresar al menú "))
+        #Este print imprime 10 líneas en blanco para ocultar el menú anterior. Especialmente para Pycharm.
         print(10*"\n")
-
+        #Esta funcion de system permite borrar la ventana del shell de Python. Solamente funciona en Windows.
         os.system('CLS')
 main()
