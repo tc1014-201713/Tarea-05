@@ -170,7 +170,7 @@ def main():
         elif eleccion==6:
             print("El número de números de cuatro digitos divisibles entre 29 es:",encontrarNumerosDivisiblesEntre29())
         elif eleccion==7:
-            print(piramidesNumeros())
+            piramidesNumeros()
         else:
             print("error. Número no localizado")
         print("")
