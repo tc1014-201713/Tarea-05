@@ -149,6 +149,7 @@ def main():
         print("6. Contar divisibles entre 29")
         print("7. Imprimir piramides de números")
         print("0. Salir")
+        print("Favor de introducir solamente números")
         eleccion = int(input("¿Qué desea hacer? "))
         print("")
         if eleccion==0:
