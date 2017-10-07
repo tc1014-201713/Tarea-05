@@ -1,6 +1,7 @@
 #encoding: UTF-8
 #Autor: Aaron Villanueva
-#Este programa hace muchas cosas.
+#Este programa despliega un menu donde el usuario puede elegir otros pequeños programas que utilizan funciones en Main.
+#Tiene un ciclo para poder regresar al menu después de realizar una acción.
 
 #Importaciones o paquetes requeridos para este programa. OS es utilizado para una función que solamente funciona en Windows.
 import pygame
