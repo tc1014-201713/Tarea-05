@@ -14,6 +14,23 @@ altoVentana = 800
 blanco = (255,255,255)
 negro = (0, 0, 0)
 
+#Esta función dibuja una serie de cuadrados y círculos los cuales cambian de tamaño y cuya diferencia es de 10 pixeles.
+def dibujarCuadrosCirculos():
+    pygame.init()
+    ventana = pygame.display.set_mode((anchoVentana, altoVentana))
+    termina = False
+    while not termina:
+        for evento in pygame.event.get():
+            if evento.type == pygame.QUIT:
+                termina = True
+        ventana.fill(blanco)
+        for diferencia in range(0,400,10):
+            pygame.draw.circle(ventana, negro, (anchoVentana // 2, altoVentana // 2), 400-diferencia, 2)
+        for cambio in range(0,400,10):
+            pygame.draw.rect(ventana, negro, (cambio,cambio,anchoVentana-(2*cambio),altoVentana-(2*cambio)), 1)
+        pygame.display.flip()
+    pygame.quit()
+
 #Esta función utiliza parabolas para dibujar un rombo con puntas alargadas. Además, tiene una animación que muestra cambios de colores en cada parabola.
 def dibujarParabolas():
     pygame.init()
@@ -33,23 +50,6 @@ def dibujarParabolas():
             pygame.draw.line(ventana, color,(400-cambio,400),(400,800-cambio))
         pygame.display.flip()
         reloj.tick(1)
-    pygame.quit()
-
-#Esta función dibuja una serie de cuadrados y círculos los cuales cambian de tamaño y cuya diferencia es de 10 pixeles.
-def dibujarCuadrosCirculos():
-    pygame.init()
-    ventana = pygame.display.set_mode((anchoVentana, altoVentana))
-    termina = False
-    while not termina:
-        for evento in pygame.event.get():
-            if evento.type == pygame.QUIT:
-                termina = True
-        ventana.fill(blanco)
-        for diferencia in range(0,400,10):
-            pygame.draw.circle(ventana, negro, (anchoVentana // 2, altoVentana // 2), 400-diferencia, 2)
-        for cambio in range(0,400,10):
-            pygame.draw.rect(ventana, negro, (cambio,cambio,anchoVentana-(2*cambio),altoVentana-(2*cambio)), 1)
-        pygame.display.flip()
     pygame.quit()
 
 #Esta función crea un espiral sin curva, es decir, una linea contigua que gira a la izquierda 90° cada vez que llega a su límite.
