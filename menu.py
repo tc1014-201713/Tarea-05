@@ -70,7 +70,7 @@ def dibujarEspiral():
             else:
                 pygame.draw.line(ventana, ROJO, (posX, posY), (posX + 0, posY + contador), 1)
                 posY += contador
-            contador += 1
+
 
         pygame.display.flip()
         reloj.tick(40)
