@@ -6,6 +6,7 @@ from random import randint
 from math import *
 
 def dibujarCuadrosYCirculos():
+    #Función que dibuja cuadros y círculos con una separación de 10 pixeles
     ANCHO = 800
     ALTO = 800
     BLANCO = (255, 255, 255)
@@ -35,10 +36,10 @@ def dibujarCuadrosYCirculos():
     pygame.quit()
 
 def dibujarEspiral():
-
+    #Función que dibuja un espiral pareciéndose a un laberinto con una separación de 10 pixeles
     ANCHO = 800
     ALTO = 800
-    BLANCO = (255, 255, 255)  # R,G,B en el rango [0,255]
+    BLANCO = (255, 255, 255)
     ROJO = (255, 0, 0)
     pygame.init()
     ventana = pygame.display.set_mode((ANCHO, ALTO))
@@ -75,7 +76,7 @@ def dibujarEspiral():
         reloj.tick(40)
     pygame.quit()
 def dibujarCirculos():
-
+    #Función que dibuja doce círculos de radio 150
     ANCHO = 800
     ALTO = 800
     BLANCO = (255, 255, 255)
@@ -102,6 +103,7 @@ def dibujarCirculos():
             reloj.tick(40)
     pygame.quit()
 def dibujarParabolas():
+    #Función que dibuja parábolas dándole un efecto para que parezca una estrella con una separación de 10 pixeles
     ANCHO = 800
     ALTO = 800
     BLANCO = (255, 255, 255)
@@ -135,6 +137,7 @@ def dibujarParabolas():
     pygame.quit()
 
 def calcularValorPI(ultimoDivisor):
+    #Mediante una fórmula y un número dado, calcula una aproximación de PI
     suma = 0
     for x in range(1, ultimoDivisor+1):
         suma += 1 / (x**2)
@@ -142,6 +145,7 @@ def calcularValorPI(ultimoDivisor):
     return pi
 
 def calcularDivisibles():
+    #Calcula cuántos números de cuatro digitos son divisibles entre 19
     numero = 0
     for x in range(1000, 10000):
         if x % 19 == 0:
@@ -149,19 +153,21 @@ def calcularDivisibles():
     return numero
 
 def imprimirPiramides():
+    #Función que imprime dos pirámides de números y sus respectivas operaciones
     suma = 0
     for x in range(1, 10, 1):
         for y in range(x+1, 1, -1):
             suma += (10 ** y)//100
         print ("%d * 8 + %d = %d" % (suma, x, suma * 8 + x))
     print("\n")
-    for i in range(0, 10, 1):
+    for i in range(0, 9, 1):
         num = 0
         for j in range(1, i+1, 1):
             num += 10**j
         num += 1
         print("%d * %d = %d" %(num, num, num * num))
 def main():
+    #Esta función es el menú que seguira preguntando al usuario por alguna opción hasta que escoja la opción 0
     salir = False
     while not salir:
         print("""Tarea 5. Seleccione qué quiere hacer.
