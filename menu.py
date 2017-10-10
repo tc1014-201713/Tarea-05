@@ -116,17 +116,18 @@ def dibujarParabolas():
             if evento.type == pygame.QUIT:
                 termina = True
             ventana.fill(BLANCO)
-            for x in range(0, 400, 15):
-                pygame.draw.line(ventana, (randint(0, 255), randint(0, 255), randint(0, 255)), (400, x), (400 + x, 400),
+            for x in range(0, 401, 10):
+                random = (randint(0, 255), randint(0, 255), randint(0, 255))
+                pygame.draw.line(ventana, random, (400, x), (400 + x, 400),
                                  1)
 
-                pygame.draw.line(ventana, (randint(0, 255), randint(0, 255), randint(0, 255)), (400, x), (400 - x, 400),
+                pygame.draw.line(ventana, random, (400, x), (400 - x, 400),
                                  1)
 
-                pygame.draw.line(ventana, (randint(0, 255), randint(0, 255), randint(0, 255)), (400, 800 - x),
+                pygame.draw.line(ventana, random, (400, 800 - x),
                                  (400 + x, 400), 1)
 
-                pygame.draw.line(ventana, (randint(0, 255), randint(0, 255), randint(0, 255)), (400, 800 - x),
+                pygame.draw.line(ventana, random, (400, 800 - x),
                                  (400 - x, 400), 1)
 
             pygame.display.flip()
@@ -173,7 +174,6 @@ def main():
         7. Imprimir pirámides de números
         0. Salir""")
         respuesta = int(input("¿Qué desea hacer? "))
-
 
         if respuesta == 1:
             dibujarCuadrosYCirculos()
