@@ -169,19 +169,26 @@ def main():
         eleccion = input("¿Qué programa desea utilizar? inserte el número:")
         if eleccion == "1":
             dibujarcuadrosycirculos()
+            print("")
         elif eleccion == "2":
             dibujarparabolas()
+            print("")
         elif eleccion == "3":
             dibujarespiral()
+            print("")
         elif eleccion == "4":
             dibujarcirculos()
+            print("")
         elif eleccion == "5":
             limite = int(input("Dame el limite de la serie para aproxima pi: "))
             print("Pi vale aproximadamente %.4f " % calcularpi(limite))
+            print("")
         elif eleccion == "6":
             print(" Los numeros de 4 digitos divisibles entre 29 son: ", calculardivisibles29())
+            print("")
         elif eleccion == "7":
             print(calcularpiramides())
+            print("")
         elif eleccion == "0":
             sys.exit()
         else:
