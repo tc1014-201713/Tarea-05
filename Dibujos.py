@@ -8,7 +8,6 @@ import math
 
 import random
 
-
 # Dimensiones de la pantalla
 ANCHO = 800
 ALTO = 800
@@ -109,7 +108,6 @@ def dibujarCirculosEntrelazados():
         for r in range(0, 330, 32):#El ángulo máximo es 330. 360 ya está contado en el (0,0). Queremos 12 círculos: 360/11= 32.72
             pygame.draw.circle(ventana, NEGRO, (int((math.cos(r) * 150) + ANCHO//2), int((math.sin(r) * 150) + ALTO//2)), (150), 1)
 
-
         pygame.display.flip()   # Actualiza trazos
         reloj.tick(60)          # 40 fps
 
@@ -142,16 +140,44 @@ def dibujarCirculoCuadrado():
 
         pygame.quit()  # termina pygame
 
-
 def imprimirPiramide():
-    pass
+
+    #Para columna del 8:
+    incremento = 1
+    for x in range(1,10,1):
+        resultado = incremento * 8 + x #Primer resultado.
+        print(incremento, "* 8 +", x, "=", resultado) #Imprime el primer resultado.
+
+        incremento = (incremento * 10) + (x+1)#El valor del incremento cambia. Multiplicando la variable inicial X10 y sumando el facto más x para agregar el valor pasado.
+    print("---------------------------------")
+
+    #Para columna del 8:
+    incremento2=1
+
+    for y in range(1,10,1):
+        resultado2 = incremento2*incremento2 #Primer resultado.
+        print(incremento2,"*",incremento2, "=", resultado2) #Imprime el primer resultado.
+
+        incremento2 = (incremento2 * 10) + (1)#El valor del incremento cambia. Multiplicando la variable inicial X10 y sumando el factor más 1 para agregar.
 
 def calcularNumerosDivisibles():
-    pass
+        d = 0
+        for x in range(1000, 10000, 1):
 
-def aproximarPI():
-    pass
+            if x % 29 == 0:
+                d += 1
 
+        return d
+
+def aproximarPI(valor):
+    incremento=0
+
+    for x in range (1,valor+1):
+        incremento=incremento+(1/x**2)
+
+    pi=(incremento*6)**(1/2)
+
+    return pi
 
 def main():
 
@@ -171,32 +197,51 @@ def main():
     seleccion=int(input("¿Qué desea hacer?:"))
     print("---------------------------------")
 
-    if seleccion==1:
-        dibujarCirculoCuadrado()
+    while seleccion>=0:
+        if seleccion==1:
+            dibujarCirculoCuadrado()
+            seleccion = int(input("¿Qué desea hacer?:"))
+            print("---------------------------------")
 
-    elif seleccion == 2:
-        dibujarEspiral()
+        elif seleccion == 2:
+            dibujarEspiral()
+            seleccion = int(input("¿Qué desea hacer?:"))
+            print("---------------------------------")
 
-    elif seleccion==3:
-        dibujarCirculosEntrelazados()
+        elif seleccion==3:
+            dibujarCirculosEntrelazados()
+            seleccion = int(input("¿Qué desea hacer?:"))
+            print("---------------------------------")
 
-    elif seleccion == 4:
-        dibujarParabola()
+        elif seleccion == 4:
+            dibujarParabola()
+            seleccion = int(input("¿Qué desea hacer?:"))
+            print("---------------------------------")
 
-    elif seleccion==7:
-        imprimirPiramide()
+        elif seleccion==7:
+            imprimirPiramide()
+            seleccion = int(input("¿Qué desea hacer?:"))
+            print("---------------------------------")
 
-    elif seleccion==6:
-        calcularNumerosDivisibles()
+        elif seleccion==6:
+            print("Número de divisibles entre 29 es:", calcularNumerosDivisibles())
+            seleccion = int(input("¿Qué desea hacer?:"))
+            print("---------------------------------")
 
-    elif seleccion==5:
-        aproximarPI()
+        elif seleccion==5:
+            pi = int(input("Ingresa el rango de pi:"))
+            print("PI vale:", aproximarPI(pi))
+            seleccion = int(input("¿Qué desea hacer?:"))
+            print("---------------------------------")
 
-    elif seleccion==0:
-        pass
+        elif seleccion>=8:
+            print("Selecciones un número del 1 al 7.")
+            print("")
+            seleccion = int(input("¿Qué desea hacer?:"))
+            print("---------------------------------")
 
-    else:
-        print("No se puede realizar esta acción. Seleccione un número del 1-7 o bien 0 para salir.")
-
+        elif seleccion==0:
+            print("¡Hasta luego!")
+            break
 
 main()
