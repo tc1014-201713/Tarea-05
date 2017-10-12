@@ -18,17 +18,23 @@ def Dibujar_Espiral():
                 termina = True
             ventana.fill(BLANCO)
 
-        x=0
-        radio=150
-        angulo=0
-
-        for i in range (1,13):
-            angulo+= pi/6
-            x=int(150*(cos(angulo)))
-            y=int(150*(sin(angulo)))
-            pygame.draw.circle(ventana, NEGRO,(x+400, y+400), radio, 1 )
-
-
+        x=400
+        y=400
+        for i in range (0,159):
+            a = i % 4
+            counter = (((i % 2) + i) // 2) * 10
+            if a == 1:
+                pygame.draw.line(ventana,NEGRO,(x,y),(x+counter,y+0),1)
+                x+=counter
+            elif a==2:
+                pygame.draw.line(ventana, NEGRO, (x, y), (x +0, y - counter), 1)
+                y-=counter
+            elif a==3:
+                pygame.draw.line(ventana, NEGRO, (x, y), (x -counter, y +0), 1)
+                x-=counter
+            else:
+                pygame.draw.line(ventana, NEGRO, (x, y), (x + 0, y + counter), 1)
+                y+=counter
 
 
         pygame.display.flip()
