@@ -213,48 +213,5 @@ def main():
     """)
         accion = int(input(menu))
 
-def main2():
-    print("Tarea 5. Seleccione qué quiere hacer.")
-    menu = """––––––––––––––––––––––––––––––––
-1. Dibujar cuadros y círculos
-2. Dibujar espiral
-3. Dibujar círculos
-4. Dibujar parábolas
-5. Aproximar PI
-6. Contar divisibles entre 29
-7. Imprimir pirámides de números 
-0. Salir
-¿Qué desea hacer?
-––––––––––––––––––––––––––––––––
-"""
-    accion = 8
-    while accion != 0:
-        accion = int(input(menu))
-        if accion > 0 and accion <=7:
-            if accion == 1:
-                dibujarCuadrosCirculos()
-            elif accion == 2:
-                dibujarEspiral()
-            elif accion == 3:
-                dibujarCirculos()
-            elif accion == 4:
-                dibujarParabolas()
-            elif accion == 5:
-                num = int(input("Por cuanto quieres aproximar el valor de Pi?\n"))
-                pi = aproximarPi(num)
-                print("El valor aproximado de Pi es: ", pi)
-            elif accion == 6:
-                divisores = contarDivisibles29()
-                print ("Hay %d números de 4 digitos divisibles entre 29" % (divisores))
-            elif accion == 7:
-                imprimirPiramides()
-        else:
-            print("""
 
-            ERROR: EL VALOR INGRESADO ES INVÁLIDO
-
-            """)
-        accion = int(input(menu))
-
-
-main2()
+main()
