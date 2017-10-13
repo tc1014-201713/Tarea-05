@@ -26,14 +26,8 @@ def Dibujar_CirculosC():
             pygame.draw.circle(ventana, NEGRO,((400),(400)),i,1 )
 
             pygame.draw.rect(ventana, NEGRO,(i,i,800-2*i,800-2*i),1)
-
-
-
-
-
         pygame.display.flip()
         reloj.tick(40)
-
 
     pygame.quit()
 
@@ -63,13 +57,8 @@ def Dibujar_Circulos():
             x=int(150*(cos(angulo)))
             y=int(150*(sin(angulo)))
             pygame.draw.circle(ventana, NEGRO,(x+400, y+400), radio, 1 )
-
-
-
-
         pygame.display.flip()
         reloj.tick(40)
-
 
     pygame.quit()
 
@@ -108,10 +97,8 @@ def Dibujar_Espiral():
                 pygame.draw.line(ventana, NEGRO, (x, y), (x + 0, y + counter), 1)
                 y+=counter
 
-
         pygame.display.flip()
         reloj.tick(40)
-
 
     pygame.quit()
 
@@ -174,9 +161,6 @@ def Hacer_Piramides():
             factor += 10 ** j
         factor+=1
         print("%d * %d = %d" %(factor, factor, factor * factor))
-
-
-
 def main():
 
     print("Tarea 5. Seleccione que quiere hacer" 
@@ -204,10 +188,7 @@ def main():
         if seleccion == 0:
             salir=True
             quit()
-
-
         if seleccion > 0 and seleccion <= 7:
-
             if seleccion == 1:
                 Dibujar_CirculosC()
             elif seleccion ==2:
@@ -225,16 +206,8 @@ def main():
                 print(numero)
             elif seleccion ==7:
                 Hacer_Piramides()
-
-
         else:
             print("numero invalido")
         seleccion=int(input(" ¿Qué desea hacer? "))
-
-
-
-
-
-
 
 main()
