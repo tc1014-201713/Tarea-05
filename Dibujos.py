@@ -105,8 +105,8 @@ def dibujarCirculosEntrelazados():
         ventana.fill(BLANCO)
 
         #Dibujar patrón de círculos.
-        for r in range(0, 330, 32):#El ángulo máximo es 330. 360 ya está contado en el (0,0). Queremos 12 círculos: 360/11= 32.72
-            pygame.draw.circle(ventana, NEGRO, (int((math.cos(r) * 150) + ANCHO//2), int((math.sin(r) * 150) + ALTO//2)), (150), 1)
+        for r in range(1,13,1):#El ángulo máximo es 330. 360 ya está contado en el (0,0). Queremos 12 círculos: 360/11= 32.72
+            pygame.draw.circle(ventana, NEGRO, (int((math.cos(r*math.pi/6) * 150) + ANCHO//2), int((math.sin(r*math.pi/6) * 150) + ALTO//2)), (150), 1)
 
         pygame.display.flip()   # Actualiza trazos
         reloj.tick(60)          # 40 fps
