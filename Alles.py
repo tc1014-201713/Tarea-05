@@ -147,15 +147,15 @@ def dibujar_Estrella():
 def Ejercicio_Pi(n):
     pi_cuadrada = 0
     for i in range(1,n+1):
-        pi_cuadrada+=1/(i**2)
-        pi=sqrt(6*pi_cuadrada)
+        pi_cuadrada+=(1/(i**2))
+    pi=sqrt((pi_cuadrada*6))
 
-        return pi
+    return pi
 
 def dividir_29():
     numero=0
     for i in range (1000,10000):
-        if i&29==0:
+        if i % 29==0:
             numero += 1
     return (numero)
 
@@ -191,7 +191,7 @@ def main():
             "\n" 
           " 5. Aproximar PI "
           "\n" 
-          " 6. Contar divisibles entre 19 "
+          " 6. Contar divisibles entre 29 "
             "\n"    
           " 7. Imprimir pirámides de números"
           "\n"
@@ -229,6 +229,7 @@ def main():
 
         else:
             print("numero invalido")
+        seleccion=int(input(" ¿Qué desea hacer? "))
 
 
 
