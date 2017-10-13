@@ -1,12 +1,11 @@
 # encoding: UTF-8
-# Autor: Luis Alfonso Alcántara
+# Autor: Jose Antonio Vazquez Gabian
 
 import pygame
 from random import randint
 from math import *
 
-def dibujarCuadrosYCirculos():
-    #Función que dibuja cuadros y círculos con una separación de 10 pixeles
+def crearCuadrosYCirculos():
     ANCHO = 800
     ALTO = 800
     BLANCO = (255, 255, 255)
@@ -23,23 +22,23 @@ def dibujarCuadrosYCirculos():
         ventana.fill(BLANCO)
         negro = (0, 0, 0)
 
-        for x in range(10, 801, 10):
-            pygame.draw.rect(ventana, negro, (x, x, 800 - 2 * x, 800 - 2 * x), 1)
+        for absisa in range(10, 801, 10):
+            pygame.draw.rect(ventana, negro, (absisa, absisa, 800 - 2 * absisa, 800 - 2 * absisa), 1)
 
-        for y in range(10, 391, 10):
-            pygame.draw.circle(ventana, negro, (ANCHO // 2, ALTO // 2), y, 2)
+        for ordenada in range(10, 391, 10):
+            pygame.draw.circle(ventana, negro, (ANCHO // 2, ALTO // 2), ordenada, 2)
 
         pygame.display.flip()
-        reloj.tick(40)
+        reloj.tick(50)
 
     pygame.quit()
 
-def dibujarEspiral():
-    #Función que dibuja un espiral pareciéndose a un laberinto con una separación de 10 pixeles
+def hacerEspiral():
     ANCHO = 800
     ALTO = 800
     BLANCO = (255, 255, 255)
-    ROJO = (255, 0, 0)
+    VERDE = (0, 255, 0)
+    ROJO = (255,0,0)
     pygame.init()
     ventana = pygame.display.set_mode((ANCHO, ALTO))
     reloj = pygame.time.Clock()
@@ -58,13 +57,13 @@ def dibujarEspiral():
             y = x % 4
             contador = (((x % 2) + x) // 2) * 10
             if y == 1:
-                pygame.draw.line(ventana, ROJO, (posX, posY), (posX + contador, posY + 0), 1)
+                pygame.draw.line(ventana, VERDE, (posX, posY), (posX + contador, posY + 0), 1)
                 posX += contador
             elif y == 2:
-                pygame.draw.line(ventana, ROJO, (posX, posY), (posX + 0, posY - contador), 1)
+                pygame.draw.line(ventana,  ROJO, (posX, posY), (posX + 0, posY - contador), 1)
                 posY -= contador
             elif y == 3:
-                pygame.draw.line(ventana, ROJO, (posX, posY), (posX - contador, posY + 0), 1)
+                pygame.draw.line(ventana, VERDE, (posX, posY), (posX - contador, posY + 0), 1)
                 posX -= contador
             else:
                 pygame.draw.line(ventana, ROJO, (posX, posY), (posX + 0, posY + contador), 1)
@@ -72,14 +71,13 @@ def dibujarEspiral():
 
 
         pygame.display.flip()
-        reloj.tick(40)
+        reloj.tick(50)
     pygame.quit()
 def dibujarCirculos():
-    #Función que dibuja doce círculos de radio 150
     ANCHO = 800
     ALTO = 800
     BLANCO = (255, 255, 255)
-    ROJO = (255, 0, 0)
+    ROSA = (255, 120, 210)
 
     pygame.init()
     ventana = pygame.display.set_mode((ANCHO, ALTO))
@@ -93,16 +91,15 @@ def dibujarCirculos():
             ventana.fill(BLANCO)
             angulo = 0
             for i in range(1, 13):
-                x = 150 * cos(angulo)
-                y = 150 * sin(angulo)
-                pygame.draw.circle(ventana, ROJO, (400 + int(x), 400 + int(y)), 150, 2)
+                absisa = 150 * cos(angulo)
+                ordenada = 150 * sin(angulo)
+                pygame.draw.circle(ventana, ROSA, (400 + int(absisa), 400 + int(ordenada)), 150, 2)
                 angulo += pi / 6
 
             pygame.display.flip()
-            reloj.tick(40)
+            reloj.tick(50)
     pygame.quit()
-def dibujarParabolas():
-    #Función que dibuja parábolas dándole un efecto para que parezca una estrella con una separación de 10 pixeles
+def realizarParabolas():
     ANCHO = 800
     ALTO = 800
     BLANCO = (255, 255, 255)
@@ -116,84 +113,80 @@ def dibujarParabolas():
             if evento.type == pygame.QUIT:
                 termina = True
             ventana.fill(BLANCO)
-            for x in range(0, 401, 10):
+            for absisa in range(0, 401, 10):
                 random = (randint(0, 255), randint(0, 255), randint(0, 255))
-                pygame.draw.line(ventana, random, (400, x), (400 + x, 400),
+                pygame.draw.line(ventana, random, (400, absisa), (400 + absisa, 400),
                                  1)
 
-                pygame.draw.line(ventana, random, (400, x), (400 - x, 400),
+                pygame.draw.line(ventana, random, (400, absisa), (400 - absisa, 400),
                                  1)
 
-                pygame.draw.line(ventana, random, (400, 800 - x),
-                                 (400 + x, 400), 1)
+                pygame.draw.line(ventana, random, (400, 800 - absisa),
+                                 (400 + absisa, 400), 1)
 
-                pygame.draw.line(ventana, random, (400, 800 - x),
-                                 (400 - x, 400), 1)
+                pygame.draw.line(ventana, random, (400, 800 - absisa),
+                                 (400 - absisa, 400), 1)
 
             pygame.display.flip()
-            reloj.tick(40)
+            reloj.tick(50)
     pygame.quit()
 
-def calcularValorPI(ultimoDivisor):
-    #Mediante una fórmula y un número dado, calcula una aproximación de PI
+def calcularPI(proxdivisor):
     suma = 0
-    for x in range(1, ultimoDivisor+1):
-        suma += 1 / (x**2)
+    for absisa in range(1, proxdivisor+1):
+        suma += 1 / (absisa**2)
     pi = sqrt(6 * suma)
     return pi
 
-def calcularDivisibles():
-    #Calcula cuántos números de cuatro digitos son divisibles entre 19
+def saberDivisibles():
     numero = 0
-    for x in range(1000, 10000):
-        if x % 19 == 0:
+    for absisa in range(1000, 10000):
+        if absisa % 29 == 0:
             numero += 1
     return numero
 
-def imprimirPiramides():
-    #Función que imprime dos pirámides de números y sus respectivas operaciones
+def producirPiramides():
     suma = 0
-    for x in range(1, 10, 1):
-        for y in range(x+1, 1, -1):
+    for absisa in range(1, 10, 1):
+        for y in range(absisa+1, 1, -1):
             suma += (10 ** y)//100
-        print ("%d * 8 + %d = %d" % (suma, x, suma * 8 + x))
+        print ("%d * 8 + %d = %d" % (suma, absisa, suma * 8 + absisa))
     print("\n")
-    for i in range(0, 9, 1):
+    for t in range(0, 9, 1):
         num = 0
-        for j in range(1, i+1, 1):
-            num += 10**j
+        for m in range(1, t+1, 1):
+            num += 10**m
         num += 1
         print("%d * %d = %d" %(num, num, num * num))
 def main():
-    #Esta función es el menú que seguira preguntando al usuario por alguna opción hasta que escoja la opción 0
     salir = False
     while not salir:
         print("""Tarea 5. Seleccione qué quiere hacer.
-        1. Dibujar cuadros y círculos
-        2. Dibujar espiral
+        1. Crear cuadros y círculos
+        2. Hacer espiral
         3. Dibujar círculos
-        4. Dibujar parábolas
+        4. Realizar parábolas
         5. Aproximar PI
-        6. Contar divisibles entre 19
-        7. Imprimir pirámides de números
+        6. Saber divisibles entre 29
+        7. Producir pirámides de números
         0. Salir""")
         respuesta = int(input("¿Qué desea hacer? "))
 
         if respuesta == 1:
-            dibujarCuadrosYCirculos()
+            crearCuadrosYCirculos()
         elif respuesta == 2:
-            dibujarEspiral()
+            hacerEspiral()
         elif respuesta == 3:
             dibujarCirculos()
         elif respuesta == 4:
-            dibujarParabolas()
+            realizarParabolas()
         elif respuesta == 5:
-            ultimoDivisor = int(input("Escriba el valor del último divisor: "))
-            print("El valor aproximado de PI es:", calcularValorPI(ultimoDivisor))
+            proxdivisor = int(input("Escriba el valor del divisor final: "))
+            print("El valor aproximado de PI es:", calcularPI(proxdivisor))
         elif respuesta == 6:
-                print("Hay",calcularDivisibles(), "números divisibles entre 19")
+                print("Hay",saberDivisibles(), "números divisibles entre 29")
         elif respuesta == 7:
-                imprimirPiramides()
+                producirPiramides()
         elif respuesta == 0:
             salir = True
         else:
