@@ -76,11 +76,11 @@ def dibujarParabola():
 
             #Cuadrante 1=
             pygame.draw.line(ventana, RANDOM, (ANCHO // 2 + p, ALTO // 2), (ALTO // 2, p), 1)
-            #Cuadrante 2
+            #Cuadrante 2=
             pygame.draw.line(ventana, RANDOM, (ANCHO//2 - p, ALTO//2),(ALTO//2,p),1)
-            # Cuadrante 3
+            # Cuadrante 3=
             pygame.draw.line(ventana, RANDOM, (ANCHO // 2, ALTO - p), (ANCHO // 2 - p, ALTO // 2), 1)
-            #Cuadrante 4
+            #Cuadrante 4=
             pygame.draw.line(ventana, RANDOM, (ANCHO//2, ALTO-p), (ANCHO//2+p, ALTO//2), 1)
 
         pygame.display.flip()   # Actualiza trazos
@@ -107,6 +107,7 @@ def dibujarCirculosEntrelazados():
         #Dibujar patrón de círculos.
         for r in range(1,13,1):#El ángulo máximo es 330. 360 ya está contado en el (0,0). Queremos 12 círculos: 360/11= 32.72
             pygame.draw.circle(ventana, NEGRO, (int((math.cos(r*math.pi/6) * 150) + ANCHO//2), int((math.sin(r*math.pi/6) * 150) + ALTO//2)), (150), 1)
+            #Se multiplica por pi con el fin de pasar los radianes a grados
 
         pygame.display.flip()   # Actualiza trazos
         reloj.tick(60)          # 40 fps
@@ -162,7 +163,7 @@ def imprimirPiramide():
 
 def calcularNumerosDivisibles():
         d = 0
-        for x in range(1000, 10000, 1):
+        for x in range(1000, 10000, 1): #Comienza desde el 1000 para los 4 dígitos.
 
             if x % 29 == 0:
                 d += 1
@@ -170,10 +171,10 @@ def calcularNumerosDivisibles():
         return d
 
 def aproximarPI(valor):
-    incremento=0
+    incremento=0 #Contador
 
     for x in range (1,valor+1):
-        incremento=incremento+(1/x**2)
+        incremento=incremento+(1/x**2)#División más contador.
 
     pi=(incremento*6)**(1/2)
 
