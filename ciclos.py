@@ -1,6 +1,6 @@
 #encoding:UTF-8
 #Autor: José Antonio Gómez Mora
-#
+#El programa lee la ocpción que seleccione el usuario en el menú y la ejecuta.
 import pygame
 import math
 from random import randint
