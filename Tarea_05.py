@@ -52,11 +52,13 @@ def dibujarEspiral():
         ventana.fill(BLANCO)
 
         for variable in range (1,39):
-            pygame.draw.line(ventana, NEGRO,(0+(10*variable),0+(10*variable)), (0+(10*variable),ALTO-(10*variable))) #IZQUIERDA
-            pygame.draw.line(ventana, NEGRO, (ANCHO-10-(10*variable),0 + (10*variable)), (ANCHO - 10-(10*variable),ALTO-10-(10*variable))) #DERECHA 39
-            pygame.draw.line(ventana, NEGRO, (0+(10*variable),0+(10*variable)),(ANCHO-10-(10*variable),0 + (10*variable))) #ARRIBA 39
-        for variable in range(0, 40):
-            pygame.draw.line(ventana, NEGRO, (0+(10*variable),ALTO-(10*variable)),(ANCHO - (10*variable),ALTO-(10*variable))) #ABAJO 40
+            pygame.draw.line(ventana, NEGRO,(10+(10*variable),0+20+(10*variable)), (10+(10*variable),ALTO-(10*variable))) #IZQUIERDA
+            pygame.draw.line(ventana, NEGRO, (ANCHO-10-(10*variable),20+(10*variable)), (ANCHO - 10-(10*variable),ALTO-10-(10*variable))) #DERECHA 39
+
+        for variable in range(1, 40):
+            pygame.draw.line(ventana, NEGRO, (10+(10*variable),ALTO-(10*variable)),(ANCHO - (10*variable),ALTO-(10*variable))) #ABAJO 40
+        for variable in range(2, 40):
+            pygame.draw.line(ventana, NEGRO, (0+ (10 * variable), 10 + (10 * variable)),(ANCHO - (10 * variable), 10 + (10 * variable)))  # ARRIBA 39
         pygame.display.flip()
     pygame.quit()
 
