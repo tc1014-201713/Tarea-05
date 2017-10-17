@@ -39,14 +39,14 @@ def dibujarParabolas(): #definimos la funcion dibujarParabolas
         Aleatorio = (randint(0, 255), randint(0, 255), randint(0, 255))
         Aleatorio1 = (randint(0, 255), randint(0, 255), randint(0, 255))
         Aleatorio2 = (randint(0, 255), randint(0, 255), randint(0, 255))
-        puntoi = 0 #indicamos que el punto inicial es 0
+        puntoInicial = 0 #indicamos que el punto inicial es 0
         for i in range(0,(ANCHO//2+1),10):#El rango es de (0,400) de 10 en 10
-            pygame.draw.line(ventana, ALEATORIO,(ANCHO//2,(ALTO//2-i) ) ,(puntoi, ALTO//2) , 1) #Dibuja la parte superior izquierda de las parabolas
-            puntoi += 10
-        puntoi=0
+            pygame.draw.line(ventana, ALEATORIO,(ANCHO//2,(ALTO//2-i) ) ,(puntoInicial, ALTO//2) , 1) #Dibuja la parte superior izquierda de las parabolas
+            puntoInicial += 10
+        puntoInicial=0
         for i in range(0, (ALTO // 2+1), 10):
-            pygame.draw.line(ventana, Aleatorio1, (puntoi, ALTO // 2), (ANCHO// 2, ALTO // 2 + i), 1)#Dibuja la parte inferior izquierda de la parabola
-            puntoi += 10
+            pygame.draw.line(ventana, Aleatorio1, (puntoInicial, ALTO // 2), (ANCHO// 2, ALTO // 2 + i), 1)#Dibuja la parte inferior izquierda de la parabola
+            puntoInicial += 10
         puntof=ANCHO
         for i in range(ANCHO // 2, (ANCHO+1), 10): #El rango es de 400 a 800 de 10 en 10
             pygame.draw.line(ventana, Aleatorio, (ANCHO // 2, (ALTO - i)), (puntof, ALTO // 2), 1)#Dibuja la parte superior derecha de la parabola
