@@ -71,51 +71,50 @@ def dibujarParabola():
 
 #Tercer función, se dibuja un espiral con líneas divididas
 def dibujarEspiral():
-    pygame.init() #Se inicia pygame
+    pygame.init()
     ventana = pygame.display.set_mode((ANCHO, ALTO))
     reloj = pygame.time.Clock()
     termina = False
 
-    while not termina: #Ciclo while para que siga corriendo hasta que se indique lo contrario
+    while not termina:
 
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
                 termina=True
 
             ventana.fill(BLANCO)
-        finx1 = 400 #Inicio de la línea
-        finy1 = 400
+        FINDX = 400
+        FINDY = 400
 
-        for i in range (0,40,1):
-            contadorA = 5+(i*20)
-            contadorB = 10+(i*20)
-            contadorC = 15+(i*20)
-            contadorD = 20+(i*20)
+        for contador in range (0,40,1):
+            contadorA = 5+(contador*20)
+            contadorB = 10+(contador*20)
+            contadorC = 15+(contador*20)
+            contadorD = 20+(contador*20)
 
+            INICIOAX = FINDX
+            INICIOAY = FINDY
+            FINAX = FINDX + contadorA
+            FINAY = FINDY
+            pygame.draw.line(ventana, NEGRO, (INICIOAX, INICIOAY), (FINAX, FINAY), 1)
 
-            inicioax = finx1
-            inicioay = finy1
-            finax = finx1 + contadorA
-            finay = finy1
-            pygame.draw.line(ventana, NEGRO, (inicioax, inicioay), (finax, finay), 1)
+            INICIOBX = FINAX
+            INICIOBY = FINAY
+            FINBX = FINAX
+            FINBY = FINAY-contadorB
+            pygame.draw.line(ventana, NEGRO, (INICIOBX, INICIOBY), (FINBX, FINBY), 1)
 
-            iniciobx = finax
-            inicioby = finay
-            finbx = finax
-            finby = finay-contadorB
-            pygame.draw.line(ventana, NEGRO, (iniciobx, inicioby), (finbx, finby), 1)
+            INICIOCX = FINBX
+            INICIOCY = FINBY
+            FINCX = FINBX-contadorC
+            FINCY = FINBY
+            pygame.draw.line(ventana, NEGRO, (INICIOCX, INICIOCY), (FINCX, FINCY), 1)
 
-            iniciocx = finbx
-            iniciocy = finby
-            fincx = finbx-contadorC
-            fincy = finby
-            pygame.draw.line(ventana, NEGRO, (iniciocx, iniciocy), (fincx, fincy), 1)
-
-            iniciodx = fincx
-            iniciody = fincy
-            findx = fincx
-            findy = fincy + contadorD
-            pygame.draw.line(ventana, NEGRO, (iniciodx, iniciody), (findx, findy), 1)
+            INICIODX = FINCX
+            INICIODY = FINCY
+            FINDX = FINCX
+            FINDY = FINCY + contadorD
+            pygame.draw.line(ventana, NEGRO, (INICIODX, INICIODY), (FINDX, FINDY), 1)
 
         pygame.display.flip()
         reloj.tick(40)
