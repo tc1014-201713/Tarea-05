@@ -1,10 +1,9 @@
 # encoding: UTF-8
 # Autor: Iván Alejandro Dumas Martínez
-# Descripción: Este programa
+# Descripción: Este programa genera un menu con varias opciones de funciones
 
 # Librerias
-import pygame,math,random,sys
-
+import pygame,math,random
 
 # Constantes
 ANCHO = 800
@@ -30,7 +29,6 @@ def dibujarCuadrosCirculos():
         # Borrar pantalla
         window.fill(BLANCO)
 
-        #
         for i in range(1,ANCHO//2,10):
             pygame.draw.circle(window,NEGRO, (ANCHO//2,ALTO//2), (i),1)
             pygame.draw.polygon(window,NEGRO,[(ANCHO//2+i,ALTO//2+i),(ANCHO//2-i,ALTO//2+i),(ANCHO//2-i,ALTO//2-i),(ANCHO//2+i,ALTO//2-i)],1)
@@ -63,7 +61,6 @@ def dibujarParabolas():
                 pygame.draw.line(window, RANDCOLOR, (ANCHO // 2, i), (ANCHO // 2 - i, ALTO // 2), 1)
                 pygame.draw.line(window, RANDCOLOR, (ANCHO // 2, ALTO - i), (ANCHO // 2 + i, ALTO // 2), 1)
                 pygame.draw.line(window, RANDCOLOR, (ANCHO // 2, ALTO - i), (ANCHO // 2 - i, ALTO // 2), 1)
-                #pygame.draw.lien(window,NEGRO,ANCHO)
 
         pygame.display.flip()
         reloj.tick(60)
@@ -74,13 +71,14 @@ def dibujarParabolas():
 def dibujarCirculos():
     PI = math.pi
     rad = 0
+    RADIO = 150
 
     pygame.init()  # Inicializa pygam
     window = pygame.display.set_mode((ANCHO, ALTO))  # Crea la ventana de dibujo
     reloj = pygame.time.Clock()  # Para limitar los fps
     termina = False  # Bandera para saber si termina la ejecución
 
-    RADIO = 150
+
     while not termina:
         # Procesa los eventos que recibe
         for evento in pygame.event.get():
