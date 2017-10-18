@@ -1,5 +1,6 @@
 #Javier Pascal Flores
 #Encding: UTF-8
+#Menú de funciones
 
 import pygame
 from math import *
