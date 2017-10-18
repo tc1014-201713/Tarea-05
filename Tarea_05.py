@@ -14,7 +14,7 @@ BLANCO = (255,255,255)
 NEGRO = (0,0,0)
 VERDE = (0,155,0)
 
-def dibujarCuadradosCirculos ():
+def dibujarCuadradosCirculos (): #dibuja una figura compuesta por cuadrados y círculos.
 
     pygame.init() #Inicia pygame.
     ventana = pygame.display.set_mode((ANCHO,ALTO)) #Crea la ventana.
@@ -44,7 +44,7 @@ def dibujarCuadradosCirculos ():
 
     pygame.quit()
 
-def dibujarParabolas():
+def dibujarParabolas(): #dibuja una figura que asemeja a 4 parábolas.
 
     pygame.init() #Inicia programa.
     ventana = pygame.display.set_mode((ANCHO,ALTO)) #Crea ventana.
@@ -73,7 +73,7 @@ def dibujarParabolas():
 
     pygame.quit()
 
-def dibujarEspiral():
+def dibujarEspiral(): #dibuja una figura hecha por una espiral.
 
     pygame.init()  # Inicia pygame.
     ventana = pygame.display.set_mode((ANCHO, ALTO))  # Crea la ventana.
@@ -99,7 +99,7 @@ def dibujarEspiral():
 
     pygame.quit()
 
-def dibujarCirculos():
+def dibujarCirculos(): #dibuja una figura compuesta por 12 círculos.
 
     pygame.init()  # Inicia pygame.
     ventana = pygame.display.set_mode((ANCHO, ALTO))  # Crea la ventana.
@@ -126,7 +126,7 @@ def dibujarCirculos():
 
     pygame.quit()
 
-def aproximarPi(num):
+def aproximarPi(num): #aproxima el valor de pi.
 
     acumula_sumas = 0
 
@@ -139,7 +139,7 @@ def aproximarPi(num):
 
     return aproximacionPi
 
-def contarDivisibles():
+def contarDivisibles(): #cuenta los números de 4 dígitos divisibles entre 29.
 
     contar_numeros = 0
 
@@ -149,7 +149,7 @@ def contarDivisibles():
 
     return contar_numeros
 
-def hacerPiramides():
+def hacerPiramides(): #crea pirámides de números.
 
     numero = 1
 
@@ -224,9 +224,5 @@ def main ():
 
         elif finaliza == 7:
             hacerPiramides()
-
-
-
-
 
 main()
