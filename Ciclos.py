@@ -123,9 +123,10 @@ def dibujarParabolas():
 
     pygame.quit()  # termina pygame
 
-def aproximarPi(valor):
+def aproximarPi():
 
     incremento = 0
+    valor =(int(input("Dame el valor que deseas:  ")))
 
     for x in range (1, valor+1):
         incremento = incremento +(1/x**2)
@@ -206,7 +207,7 @@ def main():
             print("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
 
         elif eleccion == 5:
-            aproximarPi()
+            print(aproximarPi())
             eleccion = int(input("¿Qué deseas hacer?: "))
             print("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
 
