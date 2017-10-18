@@ -1,6 +1,6 @@
 #encoding: UTF-8
 #autor: Juan Sebastián Lozano Derbez
-#Programa con menu
+#Programa con menú
 
 import pygame
 import sys
